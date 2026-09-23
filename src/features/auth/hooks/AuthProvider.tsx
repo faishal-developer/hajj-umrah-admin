@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { type User, type LoginDto } from '../types'
 import { DataService } from '@/lib/api-client'
-import { INITIAL_ADMIN_USER } from '@/lib/mock-data'
 import { AuthContext } from './AuthContext'
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -21,11 +20,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const savedToken = localStorage.getItem('admin_token')
       if (savedToken) {
         try {
-          const profile = await DataService.getMe()
+          const profile = (await DataService.getMe()) as User
           setUser(profile)
           localStorage.setItem('admin_user', JSON.stringify(profile))
         } catch {
-          setUser((prev) => prev || INITIAL_ADMIN_USER)
+          setUser(null)
+          setToken(null)
+          localStorage.removeItem('admin_token')
+          localStorage.removeItem('admin_user')
         }
       }
       setIsLoading(false)
@@ -35,10 +37,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const login = async (credentials: LoginDto) => {
     const res = await DataService.login(credentials)
+    const userObj = res.user as User
     setToken(res.access_token)
-    setUser(res.user)
+    setUser(userObj)
     localStorage.setItem('admin_token', res.access_token)
-    localStorage.setItem('admin_user', JSON.stringify(res.user))
+    localStorage.setItem('admin_user', JSON.stringify(userObj))
   }
 
   const logout = () => {

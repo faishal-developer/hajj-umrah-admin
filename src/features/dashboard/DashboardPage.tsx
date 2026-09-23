@@ -333,6 +333,12 @@ export const DashboardPage: React.FC = () => {
         <CardContent>
           {isBookingsLoading ? (
             <Skeleton className="h-40 w-full" />
+          ) : bookings.length === 0 ? (
+            <div className="p-8 text-center text-slate-500">
+              <Users className="h-8 w-8 mx-auto text-slate-400 mb-2" />
+              <p className="font-semibold text-sm text-slate-800">No bookings recorded yet</p>
+              <p className="text-xs text-slate-400 mt-1">Live pilgrim reservations will appear here once customers book a package.</p>
+            </div>
           ) : (
             <Table>
               <TableHeader>
