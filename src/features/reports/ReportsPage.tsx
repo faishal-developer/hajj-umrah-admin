@@ -5,7 +5,7 @@ import { formatBDT } from '@/lib/utils'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/Table'
 import { Button } from '@/components/ui/Button'
-import { BarChart3, Printer, Download, TrendingUp, Users, Package, CreditCard } from 'lucide-react'
+import { BarChart3, Printer, Users, Package, CreditCard } from 'lucide-react'
 
 export const ReportsPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'COLLECTIONS' | 'BOOKINGS' | 'SEATS'>('COLLECTIONS')

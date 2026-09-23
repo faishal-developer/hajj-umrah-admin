@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { DataService } from '@/lib/api-client'
-import { formatBDT, formatDateTime } from '@/lib/utils'
+import { formatDateTime } from '@/lib/utils'
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/Card'
 import { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from '@/components/ui/Table'
 import { Badge } from '@/components/ui/Badge'
@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/Button'
 import { Modal } from '@/components/ui/Modal'
 import { Input } from '@/components/ui/Input'
 import { Select } from '@/components/ui/Select'
-import { Boxes, Plus, AlertTriangle, ArrowDownRight, ArrowUpRight, History } from 'lucide-react'
+import { Boxes, Plus, History } from 'lucide-react'
 
 export const InventoryPage: React.FC = () => {
   const queryClient = useQueryClient()

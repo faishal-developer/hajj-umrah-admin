@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { ProcessRefundModal } from './components/ProcessRefundModal'
 import { type MockRefund } from '@/lib/mock-data'
-import { RotateCcw, CheckCircle2, ShieldCheck, ArrowRight } from 'lucide-react'
+import { RotateCcw, ShieldCheck, ArrowRight } from 'lucide-react'
 
 export const RefundsPage: React.FC = () => {
   const queryClient = useQueryClient()

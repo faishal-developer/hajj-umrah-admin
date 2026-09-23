@@ -26,7 +26,7 @@ export const ManualPaymentModal: React.FC<ManualPaymentModalProps> = ({
 }) => {
   const [bookingId, setBookingId] = useState(bookings[0]?.id || '')
   const [amount, setAmount] = useState<number>(50000)
-  const [receiptNumber, setReceiptNumber] = useState(`RCPT-${Date.now().toString().slice(-4)}`)
+  const [receiptNumber, setReceiptNumber] = useState(() => `RCPT-${Math.floor(1000 + Math.random() * 9000)}`)
   const [notes, setNotes] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)

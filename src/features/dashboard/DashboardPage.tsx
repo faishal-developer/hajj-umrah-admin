@@ -15,7 +15,6 @@ import {
   Package,
   Clock,
   ArrowUpRight,
-  ShieldCheck,
   ChevronRight,
   Plane,
 } from 'lucide-react'
